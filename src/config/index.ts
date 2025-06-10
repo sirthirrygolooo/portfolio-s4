@@ -4,8 +4,8 @@ export const SITE_CONFIG: SiteConfig = {
   title: "Jean-Baptiste Froehly — Développeur Full Stack",
   author: "Jean-Baptiste Froehly",
   description:
-    "Développeur étudiant basé à Belfort, je suis en deuxième année de BUT Informatique à l'IUT de Belfort.",
-  lang: "en",
+    "Jeune développeur étudiant, je suis en deuxième année de BUT Informatique à l'IUT de Belfort",
+  lang: "fr",
   siteLogo: "/cv_photo.jpg",
   navLinks: [
     { text: "Stage", href: "#stage" },
@@ -21,7 +21,7 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "Dribbble", href: "https://github.com/immois/astro-zen" },
   ],
   socialImage: "/og.png",
-  canonicalURL: "https://portfolio-s4-gamma.vercel.app/",
+  canonicalURL: "https://portfolio-s4-gamma.vercel.app",
 };
 
 export const SITE_CONTENT: SiteContent = {
