@@ -1,7 +1,7 @@
 import type { SiteConfig, SiteContent } from "@types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Jean-Baptiste Froehly — Développeur Full Stack",
+  title: "Portfolio Jean-Baptiste Froehly — Développeur Full Stack",
   author: "Jean-Baptiste Froehly",
   description:
     "Jeune développeur étudiant, je suis en deuxième année de BUT Informatique à l'IUT de Belfort",
@@ -19,7 +19,7 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "Youtube", href: "https://www.youtube.com/c/Ast%C3%A9rionlebon" },
     { text: "Twitter (gépas c'est pour la forme)", href: "http://www.staggeringbeauty.com/" },
   ],
-  socialImage: "/og.png",
+  socialImage: "/timeuu.jpg",
   canonicalURL: "https://portfolio-s4-gamma.vercel.app",
 };
 
