@@ -12,6 +12,7 @@ export interface SiteContent {
   hero: HeroProps;
   experience: ExperienceProps[];
   projects: ProjectProps[];
+  competences: CompetencesProps[];
   about: AboutProps;
 }
 
@@ -20,13 +21,20 @@ export interface HeroProps {
   specialty: string;
   summary: string;
   email: string;
+  phone?: string;
+  location?: string;
+  socialMedia?: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+  };
 }
 
 export interface ExperienceProps {
   company: string;
   position: string;
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
   summary: string | string[];
 }
 
@@ -36,6 +44,16 @@ export interface ProjectProps {
   image: string;
   linkPreview?: string;
   linkSource?: string;
+}
+
+export interface CompetencesProps {
+  competence: string;
+  couleur: string;
+  name: string;
+  summary: string;
+  competencyDetail: string;
+  trace: string;
+  legend: string;
 }
 
 export interface AboutProps {

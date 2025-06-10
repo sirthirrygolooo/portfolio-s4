@@ -1,27 +1,105 @@
 ---
 import type { HeroProps } from "@types";
-type Props = HeroProps;
 
-const { name, specialty, summary, email } = Astro.props;
+type Props = HeroProps & {
+  email: string;
+  phone?: string;
+  location?: string;
+  socialMedia?: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+  };
+};
+
+const { name, specialty, summary, email, phone, location, socialMedia } = Astro.props;
 ---
 
-<section class="py-24 md:py-32" id="#hero">
-  <h1
-    class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
-  >
+<section class="py-24 md:py-32" id="hero">
+  <h1 class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-2 md:text-9xl">
     {name}
   </h1>
-  <p
-    class="mb-9 font-serif text-4xl leading-[46px] font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
-  >
+  <p class="mb-9 font-serif text-4xl leading-[46px] font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl">
     {specialty}
   </p>
-  <p class="mb-16 text-base font-normal text-neutral md:text-lg">
+  <p class="mb-12 text-base font-normal text-neutral md:text-lg">
     {summary}
   </p>
 
-  <a
-    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff]"
-    href={`mailto:${email}`}>Get in Touch</a
-  >
+  {location && (
+      <div class="mb-6 flex items-center">
+        <svg class="mr-2 h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        <span class="text-white">{location}</span>
+      </div>
+  )}
+
+  <p class="mb-4 text-lg font-medium text-white">Me contacter</p>
+  <div class="flex flex-wrap gap-4">
+    <a
+        class="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
+        href={`mailto:${email}`}>
+      <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+      </svg>
+      Email
+    </a>
+
+    {phone && (
+        <a
+            class="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
+            href={`tel:${phone}`}>
+          <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          Tel.
+        </a>
+    )}
+
+    {socialMedia && (
+        <>
+          {socialMedia.linkedin && (
+              <a
+                  class="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
+                  href={socialMedia.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                </svg>
+                LinkedIn
+              </a>
+          )}
+          {socialMedia.github && (
+              <a
+                  class="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
+                  href={socialMedia.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.549.505 1.002 1.568 1.002 2.906 0 1.147-.009 1.67-.013 1.903.68.267 1.263.05 1.458-.484 1.985-1.324 3.85-5.078 3.85-9.504 0-5.533-4.484-10.017-10-10.017z" clip-rule="evenodd"></path>
+                </svg>
+                GitHub
+              </a>
+          )}
+          {socialMedia.twitter && (
+              <a
+                  class="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
+                  href={socialMedia.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                </svg>
+                Twitter
+              </a>
+          )}
+        </>
+    )}
+  </div>
 </section>

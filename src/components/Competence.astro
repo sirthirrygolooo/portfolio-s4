@@ -1,0 +1,69 @@
+---
+import Section from "./Section.astro";
+import { Image } from "astro:assets";
+import type { CompetencesProps } from "@types";
+
+interface PortfolioProps {
+  competences : CompetencesProps[];
+}
+
+const { competences } = Astro.props;
+
+const uniqueCompetences = [...new Map(competences.map(item => [item.competence, item.couleur])).entries()].map(([competence, couleur]) => ({ competence, couleur }));
+---
+
+<Section text="Competences abordées" href="competences">
+  <div class="mb-8">
+    <h2 class="mb-4 text-2xl font-bold text-white">Les compétences du BUT Info</h2>
+    <div class="flex flex-wrap gap-4">
+      {uniqueCompetences.map(({ competence, couleur }) => (
+        <div class="flex items-center">
+          <div class="mr-2 flex items-center justify-center rounded-full p-2" style={`background-color: ${couleur}; width: 30px; height: 30px;`}>
+            <span class="font-bold text-white text-xs">{competence.charAt(0)+competence.charAt(1)}</span>
+          </div>
+          <span class="text-white">{competence}</span>
+        </div>
+        <br>
+      ))}
+    </div>
+  </div>
+
+  {competences.map(({ name, summary, competencyDetail, trace, legend, competence, couleur }, index) => {
+    const top = 98 + index * 40;
+    return (
+      <div
+        style={`top: ${top}px;`}
+        class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
+      >
+        <div class="relative z-[1] grid h-auto w-full grid-rows-1 gap-4 rounded-2xl bg-[#1c232d]/85 p-6 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-['']">
+          <div class="absolute -top-3 -left-3">
+            <div class="flex items-center justify-center rounded-full p-2" style={`background-color: ${couleur}; width: 50px; height: 50px;`}>
+              <span class="font-bold text-white">{competence.charAt(0)+competence.charAt(1)}</span>
+            </div>
+          </div>
+          <div class="space-y-4 px-2 pt-8">
+            <h3 class="mb-2 font-serif text-3xl font-medium text-primary">
+              {name}
+            </h3>
+            <h4 class="mb-2 font-serif text-2xl font-medium text-white">
+              {summary}
+            </h4>
+            <p class="text-base text-neutral">{competencyDetail}</p>
+          </div>
+          <div class="flex justify-center">
+            <a href={trace} target="_blank" class="cursor-pointer">
+              <Image
+                class="h-64 w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105"
+                src={trace}
+                alt={legend}
+                width={1024}
+                height={600}
+              />
+            </a>
+          </div>
+          <p class="text-center text-neutral">{legend}</p>
+        </div>
+      </div>
+    );
+  })}
+</Section>
