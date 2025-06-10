@@ -12,9 +12,9 @@ const { competences } = Astro.props;
 const uniqueCompetences = [...new Map(competences.map(item => [item.competence, item.couleur])).entries()].map(([competence, couleur]) => ({ competence, couleur }));
 ---
 
-<Section text="Competences abordées" href="competences">
+<Section text="Compétences abordées" href="competences">
   <div class="mb-8">
-    <h2 class="mb-4 text-2xl font-bold text-white">Les compétences du BUT Info</h2>
+    <h2 class="mb-4 text-2xl font-bold text-white">Liste des domaines de compétences concernés</h2>
     <div class="flex flex-wrap gap-4">
       {uniqueCompetences.map(({ competence, couleur }) => (
         <div class="flex items-center">

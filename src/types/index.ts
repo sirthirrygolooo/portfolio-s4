@@ -14,6 +14,7 @@ export interface SiteContent {
   projects: ProjectProps[];
   competences: CompetencesProps[];
   about: AboutProps;
+  compList: CompListProps[];
 }
 
 export interface HeroProps {
@@ -31,12 +32,14 @@ export interface HeroProps {
 }
 
 export interface ExperienceProps {
-  company: string;
-  position: string;
+  company?: string;
+  position?: string;
   startDate?: string;
   endDate?: string;
-  summary: string | string[];
+  summary?: string | string[];
 }
+
+
 
 export interface ProjectProps {
   name: string;
@@ -54,6 +57,13 @@ export interface CompetencesProps {
   competencyDetail: string;
   trace: string;
   legend: string;
+}
+
+export interface CompListProps {
+  name: string;
+  level: number;
+  color?: string;
+  focus?: boolean;
 }
 
 export interface AboutProps {

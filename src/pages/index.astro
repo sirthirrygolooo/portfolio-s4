@@ -6,13 +6,16 @@ import Experience from "@components/Experience.astro";
 import Projects from "@components/Projects.astro";
 import Competence from "@components/Competence.astro";
 import About from "@components/About.astro";
+import ListeComp from "../components/ListeComp.astro";
 
 import "../styles/global.css";
+
 ---
 
 <Layout>
   <Hero {...SITE_CONTENT.hero} />
   <Experience experience={SITE_CONTENT.experience} />
+  <ListeComp compListe={SITE_CONTENT.compList} />
   <Competence competences={SITE_CONTENT.competences} />
   <Projects projects={SITE_CONTENT.projects} />
   <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
