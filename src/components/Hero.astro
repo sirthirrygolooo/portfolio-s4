@@ -1,16 +1,7 @@
 ---
 import type { HeroProps } from "@types";
 
-type Props = HeroProps & {
-  email: string;
-  phone?: string;
-  location?: string;
-  socialMedia?: {
-    linkedin?: string;
-    github?: string;
-    twitter?: string;
-  };
-};
+type Props = HeroProps;
 
 const { name, specialty, summary, email, phone, location, socialMedia } = Astro.props;
 ---
@@ -36,7 +27,7 @@ const { name, specialty, summary, email, phone, location, socialMedia } = Astro.
       </div>
   )}
 
-  <p class="mb-4 text-lg font-medium text-white">Me contacter</p>
+  <p class="mb-4 text-lg font-medium text-white">Me contacter / Mes réseaux</p>
   <div class="flex flex-wrap gap-4">
     <a
         class="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
@@ -62,7 +53,7 @@ const { name, specialty, summary, email, phone, location, socialMedia } = Astro.
         <>
           {socialMedia.linkedin && (
               <a
-                  class="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
+                  class="inline-flex items-center rounded-full bg-gray-700 px-4 py-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
                   href={socialMedia.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -75,7 +66,7 @@ const { name, specialty, summary, email, phone, location, socialMedia } = Astro.
           )}
           {socialMedia.github && (
               <a
-                  class="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
+                  class="inline-flex items-center rounded-full bg-gray-700 px-4 py-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-90"
                   href={socialMedia.github}
                   target="_blank"
                   rel="noopener noreferrer"

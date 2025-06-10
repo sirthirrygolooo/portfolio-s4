@@ -32,7 +32,7 @@ export const SITE_CONTENT: SiteContent = {
     email: "jean-baptiste.froehly@protonmail.com",
     phone: "+337490888203",
     location: "Belfort, France",
-    socialMedia: {github:"hehe", linkedin:"hehe"},
+    socialMedia: {github:"https://github.com/sirthirrygolooo/", linkedin:"https://www.linkedin.com/in/jean-baptiste-froehly/"},
   },
   experience: [
     {
