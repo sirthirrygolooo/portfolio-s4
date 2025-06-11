@@ -101,8 +101,8 @@ export const SITE_CONTENT: SiteContent = {
 Il me fallait donc un dataset contenant un grand nombre d’images, déjà triées et peu affectées par des artefacts ou imperfections. Les images IRM répondent bien à ces critères : elles sont relativement faciles à trouver, souvent de bonne qualité, et présentent un format standardisé, ce qui facilite leur traitement. De plus, le domaine médical s’avère pertinent dans une optique de recherche sur les attaques, notamment en raison des enjeux éthiques et de confidentialité qu’il soulève.
 
 Le choix du dataset n’a pas été fait au hasard. Il a nécessité une réflexion approfondie et une capacité à évaluer la pertinence et la qualité des données disponibles. Cette démarche illustre donc bien la mise en œuvre de compétences du domaine C4, car elle a impliqué à la fois une recherche méthodique, un tri rigoureux des sources, et une attention portée à la validité des données utilisées dans un contexte critique.`,
-      trace: "/pgd_attack.png",
-      legend: "Traitement d'images IRM pour la détection d'Alzheimer",
+      trace: "/traces/kaggle.png",
+      legend: "Capture d'écran de Kaggle.com, site regroupant de nombreux datasets publiés par une communauté de chercheurs et de développeurs.",
     },
     {
       competence: "C4 - Gérer des données de l'information",
