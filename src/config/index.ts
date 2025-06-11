@@ -45,7 +45,7 @@ export const SITE_CONTENT: SiteContent = {
         "Sujet centré sur l’apprentissage automatique (Machine Learning), et plus particulièrement sur la sécurisation de ces systèmes.",
         "L’objectif principal était de concevoir et simuler des attaques afin de comprendre leur fonctionnement, puis d’imaginer et d’implémenter des solutions pour les contrer ou en réduire l’impact.",
         "Cela impliquait notamment la mise en place de mécanismes de détection d’attaques, ainsi que, lorsque la détection n’était pas envisageable, le développement de techniques de prévention.",
-        "J'ai principalement travaillé sur des images IRM (Imagerie par Résonance Magnétique) utilisées pour la détection précoce de la maladie d'Alzheimer. J'ai donc entrainé des modèles pour la détection.",
+        "J'ai principalement travaillé sur des images IRM (Imagerie par Résonance Magnétique) utilisées pour la détection précoce de la maladie d'Alzheimer. J'ai donc entrainé des modèles pour la détection dans un premier temps.",
         "Une fois fois qu'un modèle a de bons résultats, on implémente alors une attaque que l'on cherche à rendre le plus efficace possible et le moins détectable possible, puis on cherche des solutions pour la contrer.",
         "On connait ainsi l'efficacité du modèle avant attaque, l'efficacité du modèle après attaque, et l'efficacité de la solution que l'on a implémentée pour contrer l'attaque.",
       ],
@@ -66,14 +66,14 @@ export const SITE_CONTENT: SiteContent = {
       summary: "• C6 : Collaborer au sein d'une équipe informatique "
     },
     {
-      summary: "En effet, le sujet étant basé sur de l'étude et de la compréhension de données, la compétence 4 a été particulièrement centrale. De plus l'organisation a fait que je devais travailler en collaboration avec d'autres personnes, renseignées sur le sujet ou non."+
+      summary: "En effet, le sujet étant basé sur de l'étude et de la compréhension de données, la compétence 4 a été particulièrement centrale. De plus l'organisation a fait que j'ai du parfois intéragir des personnes, renseignées sur le sujet ou non."+
           " Cela impliquait donc de tenir mon code documenté, de tenir des rapports hebdomadaires détaillés, faire des présentations pour vulgariser le sujet, etc... Ce qui illustre parfaitement but recherché par la compétence 6.",
     }
   ],
   projects: [
     {
-      name: "ADNI Site",
-      summary: "Faudra expliquer c'est quoi",
+      name: "Site de l'ADNI",
+      summary: "ADNI, pour Alzheimer's Disease Neuroimaging Initiative, est un projet de recherche visant à étudier la maladie d'Alzheimer à travers l'imagerie cérébrale.",
       linkSource: "https://adni.loni.usc.edu/data-samples/adni-data/",
       image: "/brain.png",
     },
@@ -84,7 +84,7 @@ export const SITE_CONTENT: SiteContent = {
       image: "/brain_dataset.jpg",
     },
     {
-      name: "Github Repository",
+      name: "Github du stage",
       summary: "Le repository GitHub de mon stage",
       linkSource: "https://github.com/sirthirrygolooo/MLsecurity",
       image: "/github_repo2.png",
@@ -92,22 +92,27 @@ export const SITE_CONTENT: SiteContent = {
   ],
   competences: [
     {
-      competence: "C1 - Réaliser un développement d'application",
-      couleur: "#4285F4",
-      name: "Compétence 4 – Gestion des données de l'information",
-      summary: "Travail sur des IRM pour détecter Alzheimer via des modèles ML.",
-      competencyDetail: `Mise en œuvre d'un pipeline de traitement d'images IRM, anonymisation, et structuration des données pour apprentissage supervisé. Utilisation de bibliothèques comme nibabel, numpy et pandas.`,
+      competence: "C4 - Gérer des données de l'information",
+      couleur: "#EA4335",
+      name: "Savoir collecter des données pertinentes pour une application",
+      summary: "Collecte des données",
+      competencyDetail: `Dans le cadre de ce stage, j’ai principalement travaillé sur des images IRM (Imagerie par Résonance Magnétique), et ce choix s’est imposé pour plusieurs raisons. Mon objectif étant de mener des attaques sur des systèmes d’apprentissage automatique, il était essentiel de disposer d’un jeu de données propre, structuré et de haute qualité pour garantir la fiabilité des expérimentations.
+
+Il me fallait donc un dataset contenant un grand nombre d’images, déjà triées et peu affectées par des artefacts ou imperfections. Les images IRM répondent bien à ces critères : elles sont relativement faciles à trouver, souvent de bonne qualité, et présentent un format standardisé, ce qui facilite leur traitement. De plus, le domaine médical s’avère pertinent dans une optique de recherche sur les attaques, notamment en raison des enjeux éthiques et de confidentialité qu’il soulève.
+
+Le choix du dataset n’a pas été fait au hasard. Il a nécessité une réflexion approfondie et une capacité à évaluer la pertinence et la qualité des données disponibles. Cette démarche illustre donc bien la mise en œuvre de compétences du domaine C4, car elle a impliqué à la fois une recherche méthodique, un tri rigoureux des sources, et une attention portée à la validité des données utilisées dans un contexte critique.`,
       trace: "/pgd_attack.png",
       legend: "Traitement d'images IRM pour la détection d'Alzheimer",
     },
     {
-      competence: "C2 - Les couilles a jules",
-      couleur: "#34A853",
-      name: "Compétence 6 – Collaboration au sein d'une équipe informatique",
-      summary: "Travail collaboratif dans une équipe de recherche appliquée.",
-      competencyDetail: `Utilisation de Git pour le versionnage, échanges réguliers avec encadrants pour valider les choix techniques, et documentation continue du code. Revue de code hebdomadaire avec l'équipe.`,
-      trace: "/pgd_attack.png",
-      legend: "Collaboration en équipe de recherche appliquée",
+      competence: "C4 - Gérer des données de l'information",
+      couleur: "#EA4335",
+      name: "Savoir préparer des données",
+      summary: "Préparation des données pour travailler efficacement avec",
+      competencyDetail: `J'ai donc du dans un second temps préparer les données pour que celles ci soient utilisables aisément. J'avais donc un peu plus de 30 000 images qui étaient nommées selon leur diagnostic qui sont au nombre de 4. J'ai donc élaboré un script python qui venait automatiser le rangement de ces images.`+
+      "Sur cette capture d'écran, on peut donc voir une fonction qui vient installer le dataset en local, déplacer les images dans des dossiers selon leur diagnostic, et créer un fichier CSV répertoriant les images et leurs diagnostics respectifs. Cela permet de faciliter l'accès aux données pour les étapes suivantes du projet.",
+      trace: "/traces/setup.png",
+      legend: "Capture d'écran du script de préparation des données",
     },
         {
       competence: "C3 - hehe",
