@@ -4,7 +4,7 @@ export const SITE_CONFIG: SiteConfig = {
   title: "Portfolio Jean-Baptiste Froehly — Développeur Full Stack",
   author: "Jean-Baptiste Froehly",
   description:
-    "Jeune développeur étudiant, je suis en deuxième année de BUT Informatique à l'IUT de Belfort",
+    "Jeune développeur Full Stack, je suis en deuxième année de BUT Informatique à l'IUT de Belfort",
   lang: "fr",
   siteLogo: "/peepo.gif",
   navLinks: [
@@ -19,7 +19,7 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "Youtube", href: "https://www.youtube.com/c/Ast%C3%A9rionlebon" },
     { text: "Twitter (gépas c'est pour la forme)", href: "http://www.staggeringbeauty.com/" },
   ],
-  socialImage: "/timeuu.jpg",
+  socialImage: "/social_pic.png",
   canonicalURL: "https://portfolio-s4-gamma.vercel.app",
 };
 
@@ -28,7 +28,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "Jean-Baptiste Froehly",
     specialty: "Développeur Full Stack",
     summary:
-      "Jeune développeur étudiant, je suis en deuxième année de BUT Informatique à l'IUT de Belfort",
+      "Jeune développeur Full Stack, je suis en deuxième année de BUT Informatique à l'IUT de Belfort",
     email: "jean-baptiste.froehly@protonmail.com",
     phone: "+337490888203",
     location: "Belfort, France",
