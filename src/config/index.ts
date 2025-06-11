@@ -110,7 +110,7 @@ Le choix du dataset n’a pas été fait au hasard. Il a nécessité une réflex
       name: "Savoir préparer des données",
       summary: "Préparation des données pour travailler efficacement avec",
       competencyDetail: `J'ai donc du dans un second temps préparer les données pour que celles ci soient utilisables aisément. J'avais donc un peu plus de 30 000 images qui étaient nommées selon leur diagnostic qui sont au nombre de 4. J'ai donc élaboré un script python qui venait automatiser le rangement de ces images.`+
-      "Sur cette capture d'écran, on peut donc voir une fonction qui vient installer le dataset en local, déplacer les images dans des dossiers selon leur diagnostic, et créer un fichier CSV répertoriant les images et leurs diagnostics respectifs. Cela permet de faciliter l'accès aux données pour les étapes suivantes du projet.",
+      "Sur cette capture d'écran, on peut donc voir une fonction qui vient installer le dataset en local, déplacer les images dans des dossiers selon leur diagnostic, et créer un fichier CSV répertoriant les images et leurs diagnostics respectifs. Le tout en mettant en place une gestion de l'erreur. Ces opérations permet de faciliter l'accès aux données pour les étapes suivantes du projet.",
       trace: "/traces/setup.png",
       legend: "Capture d'écran du script de préparation des données",
     },
@@ -124,8 +124,8 @@ Le choix du dataset n’a pas été fait au hasard. Il a nécessité une réflex
       legend: "Collaboration en équipe de recherche appliquée",
     },
       {
-      competence: "C4",
-      couleur: "#EA4335",
+      competence: "C1",
+      couleur: "#4285F4",
       name: "Compétence 6 – Collaboration au sein d'une équipe informatique",
       summary: "Travail collaboratif dans une équipe de recherche appliquée.",
       competencyDetail: `Utilisation de Git pour le versionnage, échanges réguliers avec encadrants pour valider les choix techniques, et documentation continue du code. Revue de code hebdomadaire avec l'équipe.`,
@@ -142,8 +142,8 @@ Le choix du dataset n’a pas été fait au hasard. Il a nécessité une réflex
         legend: "Collaboration en équipe de recherche appliquée",
     },
     {
-      competence: "C5",
-      couleur: "#9C27B0",
+      competence: "C2",
+      couleur: "#34A853",
       name: "Compétence 6 – Collaboration au sein d'une équipe informatique",
       summary: "Travail collaboratif dans une équipe de recherche appliquée.",
       competencyDetail: `Utilisation de Git pour le versionnage, échanges réguliers avec encadrants pour valider les choix techniques, et documentation continue du code. Revue de code hebdomadaire avec l'équipe.`,
