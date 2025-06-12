@@ -3,10 +3,6 @@ import Section from "./Section.astro";
 import { Image } from "astro:assets";
 import type { CompetencesProps } from "@types";
 
-interface Props {
-  competences : CompetencesProps[];
-}
-
 const { competences } = Astro.props;
 
 const uniqueCompetences = [...new Map(competences.map(item => [item.competence, item.couleur])).entries()].map(([competence, couleur]) => ({ competence, couleur }));
@@ -17,13 +13,13 @@ const uniqueCompetences = [...new Map(competences.map(item => [item.competence, 
     <h2 class="mb-4 text-2xl font-bold text-white">Liste des domaines de compétences concernés</h2>
     <div class="flex flex-wrap gap-4">
       {uniqueCompetences.map(({ competence, couleur }) => (
-        <div class="flex items-center">
-          <div class="mr-2 flex items-center justify-center rounded-full p-2" style={`background-color: ${couleur}; width: 30px; height: 30px;`}>
-            <span class="font-bold text-white text-xs">{competence.charAt(0)+competence.charAt(1)}</span>
+          <div class="flex items-center">
+            <div class="mr-2 flex items-center justify-center rounded-full p-2" style={`background-color: ${couleur}; width: 30px; height: 30px;`}>
+              <span class="font-bold text-white text-xs">{competence.charAt(0)+competence.charAt(1)}</span>
+            </div>
+            <span class="text-white">{competence}</span>
           </div>
-          <span class="text-white">{competence}</span>
-        </div>
-        <br>
+          <br>
       ))}
     </div>
   </div>
@@ -31,39 +27,238 @@ const uniqueCompetences = [...new Map(competences.map(item => [item.competence, 
   {competences.map(({ name, summary, competencyDetail, trace, legend, competence, couleur }, index) => {
     const top = 98 + index * 40;
     return (
-      <div
-        style={`top: ${top}px;`}
-        class="mb-12 rounded-2xl border border-neutral/20 bg-black"
-      >
-        <div class="relative z-[1] grid h-auto w-full grid-rows-1 gap-4 rounded-2xl bg-[#1c232d]/85 p-6 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/noiseu.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-['']">
-          <div class="absolute -top-3 -left-3">
-            <div class="flex items-center justify-center rounded-full p-2" style={`background-color: ${couleur}; width: 50px; height: 50px;`}>
-              <span class="font-bold text-white">{competence.charAt(0)+competence.charAt(1)}</span>
+        <div
+            style={`top: ${top}px;`}
+            class="mb-12 rounded-2xl border border-neutral/20 bg-black"
+        >
+          <div class="relative z-[1] grid h-auto w-full grid-rows-1 gap-4 rounded-2xl bg-[#1c232d]/85 p-6 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/noiseu.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-['']">
+            <div class="absolute -top-3 -left-3">
+              <div class="flex items-center justify-center rounded-full p-2" style={`background-color: ${couleur}; width: 50px; height: 50px;`}>
+                <span class="font-bold text-white">{competence.charAt(0)+competence.charAt(1)}</span>
+              </div>
             </div>
+            <div class="space-y-4 px-2 pt-8">
+              <h3 class="mb-2 font-serif text-3xl font-medium text-primary">
+                {name}
+              </h3>
+              <h4 class="mb-2 font-serif text-2xl font-medium text-white">
+                {summary}
+              </h4>
+              <p class="text-base text-neutral">{competencyDetail}</p>
+            </div>
+            <div class="flex justify-center">
+              <button
+                  class="cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary rounded-xl"
+                  data-modal-trigger
+                  data-image-src={trace}
+                  data-image-alt={legend}
+                  data-image-title={name}
+              >
+                <Image
+                    class="h-64 w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105"
+                    src={trace || "/peepo.gif"}
+                    alt={legend}
+                    width={1024}
+                    height={600}
+                />
+              </button>
+            </div>
+            <p class="text-center text-neutral">{legend}</p>
           </div>
-          <div class="space-y-4 px-2 pt-8">
-            <h3 class="mb-2 font-serif text-3xl font-medium text-primary">
-              {name}
-            </h3>
-            <h4 class="mb-2 font-serif text-2xl font-medium text-white">
-              {summary}
-            </h4>
-            <p class="text-base text-neutral">{competencyDetail}</p>
-          </div>
-          <div class="flex justify-center">
-            <a href={trace} target="_blank" class="cursor-pointer">
-              <Image
-                class="h-64 w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105"
-                src={trace}
-                alt={legend}
-                width={1024}
-                height={600}
-              />
-            </a>
-          </div>
-          <p class="text-center text-neutral">{legend}</p>
         </div>
-      </div>
     );
   })}
+
+  <!-- modal -->
+  <div id="image-modal" class="modal-overlay">
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close" aria-label="Fermer le modal">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <div class="modal-content">
+        <img id="modal-image" src="/peepo.gif" alt="" class="modal-image">
+        <div class="modal-info">
+          <h3 id="modal-title" class="modal-title"></h3>
+          <p id="modal-caption" class="modal-caption"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </Section>
+
+<style>
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 1rem;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-container {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: #1c232d;
+    border-radius: 1rem;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .modal-overlay.active .modal-container {
+    transform: scale(1);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s ease;
+  }
+
+  .modal-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .modal-info {
+    padding: 1.5rem;
+    background: #1c232d;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-caption {
+    color: #a1a1aa;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .modal-container {
+      max-width: 95vw;
+      max-height: 95vh;
+    }
+
+    .modal-image {
+      max-height: 60vh;
+    }
+
+    .modal-info {
+      padding: 1rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+    }
+
+    .modal-caption {
+      font-size: 0.875rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCaption = document.getElementById('modal-caption');
+    const modalClose = document.getElementById('modal-close');
+    const triggers = document.querySelectorAll('[data-modal-trigger]');
+
+    // ouvrir le modal
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        const imageSrc = this.getAttribute('data-image-src');
+        const imageAlt = this.getAttribute('data-image-alt');
+        const imageTitle = this.getAttribute('data-image-title');
+
+        if (modalImage && modalTitle && modalCaption && modal) {
+          modalImage.src = imageSrc;
+          modalImage.alt = imageAlt;
+          modalTitle.textContent = imageTitle;
+          modalCaption.textContent = imageAlt;
+
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // femer le modal
+    function closeModal() {
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // fermer avec bouton
+    if (modalClose) {
+      modalClose.addEventListener('click', closeModal);
+    }
+
+    // fermet avec clic en dehors
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }
+
+    // fermer avec touche esc
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  });
+</script>

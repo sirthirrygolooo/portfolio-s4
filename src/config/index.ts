@@ -16,8 +16,8 @@ export const SITE_CONFIG: SiteConfig = {
   socialLinks: [
     { text: "LinkedIn", href: "https://www.linkedin.com/in/jean-baptiste-froehly/" },
     { text: "Github", href: "https://github.com/sirthirrygolooo/" },
-    { text: "Youtube", href: "https://www.youtube.com/c/Ast%C3%A9rionlebon" },
-    { text: "Twitter (gépas c'est pour la forme)", href: "http://www.staggeringbeauty.com/" },
+    { text: "Root-me", href: "https://www.root-me.org/Sir_thirrygolooo" },
+    { text: "Lien GitHub de ce portfolio", href: "https://github.com/sirthirrygolooo/portfolio-s4" },
   ],
   socialImage: "/social_pic.png",
   canonicalURL: "https://portfolio-s4-gamma.vercel.app",
@@ -196,7 +196,7 @@ Le choix du dataset n’a pas été fait au hasard. Il a nécessité une réflex
   ],
   about: {
     description: `
-      Bonjour je suis Jean-Baptiste, faudra que j'en dise plus mais flemme j'ai des compétences à développer.
+      Bonjour je suis Jean-Baptiste, faudra que j'en dise plus mais un peu la flemme et la c'est pas le but : j'ai des compétences à développer.
     `,
     image: "/cv_photo.jpg",
   }
