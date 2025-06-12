@@ -216,13 +216,13 @@ const uniqueCompetences = [...new Map(competences.map(item => [item.competence, 
     const triggers = document.querySelectorAll('[data-modal-trigger]');
 
     // ouvrir le modal
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', function() {
-        const imageSrc = this.getAttribute('data-image-src');
-        const imageAlt = this.getAttribute('data-image-alt');
-        const imageTitle = this.getAttribute('data-image-title');
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', function () {
+        const imageSrc = (this as HTMLElement).getAttribute('data-image-src') || '';
+        const imageAlt = (this as HTMLElement).getAttribute('data-image-alt') || '';
+        const imageTitle = (this as HTMLElement).getAttribute('data-image-title') || '';
 
-        if (modalImage && modalTitle && modalCaption && modal) {
+        if (modalImage instanceof HTMLImageElement && modalTitle && modalCaption && modal) {
           modalImage.src = imageSrc;
           modalImage.alt = imageAlt;
           modalTitle.textContent = imageTitle;
