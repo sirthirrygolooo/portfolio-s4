@@ -217,10 +217,10 @@ const uniqueCompetences = [...new Map(competences.map(item => [item.competence, 
 
     // ouvrir le modal
     triggers.forEach((trigger) => {
-      trigger.addEventListener('click', function () {
-        const imageSrc = (this as HTMLElement).getAttribute('data-image-src') || '';
-        const imageAlt = (this as HTMLElement).getAttribute('data-image-alt') || '';
-        const imageTitle = (this as HTMLElement).getAttribute('data-image-title') || '';
+      trigger.addEventListener('click', function (this: HTMLElement) {
+        const imageSrc: string = this.getAttribute('data-image-src') || '';
+        const imageAlt: string = this.getAttribute('data-image-alt') || '';
+        const imageTitle: string = this.getAttribute('data-image-title') || '';
 
         if (modalImage instanceof HTMLImageElement && modalTitle && modalCaption && modal) {
           modalImage.src = imageSrc;
