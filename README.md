@@ -1,15 +1,29 @@
-# Portfolio host sous Vercel
+# Portfolio S4 de moi même host sous Vercel
 
-## [Lien](https://portfolio-s4-gamma.vercel.app/)
+![apercu](./public/social_pic.png)
 
-## Installation
+## \>> [Lien](https://portfolio-s4-gamma.vercel.app/) <<
+
+## Cloner le projet
 
 ```bash
-npm install
+git clone https://github.com/sirthirrygolooo/portfolio-s4
 ```
 
-## Lancer le projet
+## Installation - PNPM - [Installation pnpm](https://pnpm.io/installation)
 
 ```bash
-npm run dev
+pnpm install
+```
+
+## Lancement
+
+```bash
+npm run start
+```
+
+ou 
+
+```bash
+pnpm start
 ```
