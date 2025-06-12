@@ -3,6 +3,8 @@ import Section from "./Section.astro";
 import { Image } from "astro:assets";
 import type { CompetencesProps } from "@types";
 
+interface Props { competences: CompetencesProps[]; }
+
 const { competences } = Astro.props;
 
 const uniqueCompetences = [...new Map(competences.map(item => [item.competence, item.couleur])).entries()].map(([competence, couleur]) => ({ competence, couleur }));
