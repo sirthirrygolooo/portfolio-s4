@@ -80,7 +80,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Mon dataset de travail",
       summary: "A upload, pas encore refait (dataset plus disponible sur Kaggle donc dataset local retravaillé)",
-      linkSource: "https://onlyfeets.com",
+      linkSource: "https://drive.proton.me/urls/D6PWW55A1C#Q2oYPl1WtSei",
       image: "/brain_dataset.jpg",
     },
     {
