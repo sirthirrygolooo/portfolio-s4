@@ -196,7 +196,7 @@ Le choix du dataset n’a pas été fait au hasard. Il a nécessité une réflex
   ],
   about: {
     description: `
-      Bonjour je suis Jean-Baptiste, il faudra que j'en dise un peu plus dans cette section mais mais ce n'est pas la priorité pour le moment : j'ai des compétences à développer.
+      Bonjour je suis Jean-Baptiste, il faudra que j'en dise un peu plus dans cette section mais ce n'est pas la priorité pour le moment : j'ai des compétences à développer.
     `,
     image: "/cv_photo.jpg",
   }
